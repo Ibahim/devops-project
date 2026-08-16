@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
 
     agent any
 
@@ -38,10 +38,14 @@ pipeline {
             }
         }
 
-        stage('Check Deployment') {
+        stage('Health Check') {
             steps {
                 sh '''
-                    docker ps
+                    echo "Checking application health..."
+
+                    curl -f http://localhost:${HOST_PORT}
+
+                    echo "Health Check PASSED!"
                 '''
             }
         }
