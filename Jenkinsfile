@@ -43,7 +43,7 @@
                 sh '''
                     echo "Checking application health..."
 
-                    curl -f http://localhost:${HOST_PORT}
+                    curl -f http://192.168.1.104:${HOST_PORT}
 
                     echo "Health Check PASSED!"
                 '''
